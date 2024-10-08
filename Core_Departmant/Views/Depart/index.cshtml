@@ -1,0 +1,29 @@
+@using Core_Departmant.Models
+@model List<departmanlar>
+
+@{
+ViewData["Title"] = "Home Page";
+Layout = "~/Views/Shared/_TestLAyout.cshtml";
+}
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Departman ID</th>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.id</td>
+            <td>@x.departmanAd</td>
+            <td><a href="/depart/DepartmanSil/@x.id" class="btn btn-danger">SİL</a></td>
+            <td><a href="/depart/DepartmanGetir/@x.id" class="btn btn-success">GÜNCELLE</a></td>
+            <td><a href="#" class="btn btn-default" style="background-color: #f5c2c7">DETAYLAR</a></td>
+        </tr>
+    }
+
+</table>
+<a href="/depart/YeniDepartman/" class="btn btn-primary" style="background-color: #f5c2c7">Yeni Departman Ekle</a>
